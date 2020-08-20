@@ -1,0 +1,15 @@
+.just {
+    width: 100px;
+    display: block;
+    margin-bottom: 40px;
+}
+.second{
+    color: orange;
+    font-size: 20px;
+}
+#gallery{
+    display: block;
+    width: 500px;
+    height: 500px;
+    margin: 0 auto;
+}

@@ -1,12 +1,42 @@
-import users from './users.js'
-// Завдання 2
-// Отримати масив об'єктів користувачів за кольором очей (поле eyeColor).
 
-const getUsersWithEyeColor = (users, color) => {
-  const findEye = users.filter(user => user.eyeColor === color);
-  return findEye;
-  // твій код
-};
+// В JS є масив рядків.
 
-console.log(getUsersWithEyeColor(users, 'blue')); 
-// [об'єкт Moore Hensley, об'єкт Sharlene Bush, об'єкт Carey Barr]
+const ingredient = [
+  'Картопля',
+  'Гриби',
+  'Часник',
+  'Помідори',
+  'Зелень',
+  'Приправи',
+];
+// Напиши скрипт, який для кожного елемента масиву
+//  ingredients створить окремий li,
+//  після чого вставить всі li за одну операцію 
+//  в список ul.ingredients. Для створення DOM-вузлів
+//   використовуй document.createElement().
+// const dinamicIngrediant = ingredient.reduce( (acc,el,i) => {
+//   const liRef = document.createElement('li');
+//   liRef.textContent = ingredients[i];
+//   el = liRef
+//   const resalt = acc + el;
+//   return resalt;
+// },[]);
+// console.log(dinamicIngrediant)
+
+// const ingredientsRef = document.querySelectorAll('#ingredients');
+// const resaltRest = ingredientsRef.append(...dinamicIngrediant);
+
+//   console.log(resaltRest);
+const ready = document.querySelector('#ingredients')
+
+const dinamic = ingredient.map((elem) => {
+  const just = document.createElement('li');
+  just.textContent = elem;
+  just.classList.add('second')
+  return console.log(ready.appendChild(just));
+})
+// const as = [];
+//  console.log(as.push.dinamic);
+//  let ingredientsRef = document.querySelectorAll('#ingredients');
+//  let resaltRest = ingredientsRef.append(...dinamic);
+// console.log(resaltRest);

@@ -1,13 +1,39 @@
-import users from './users.js'
 // Завдання 3
-// Отримати масив імен користувачів за статтю (поле gender).
+// Напиши скрипт для створення галереї зображень по масиву даних.
 
-const getUsersWithGender = (users, gen) => {
-  const findPerState =users.filter(users => users.gender === gen).map(tipe => tipe.name);
-  // users.reduce((acc,gen) => acc + gen.gender,[])
-  return findPerState;
-  // твій код
-};
+// В HTML є список ul#gallery.
 
-console.log(getUsersWithGender(users, 'male'));
- // [ 'Moore Hensley', 'Ross Vazquez', 'Carey Barr', 'Blackburn Dotson' ]
+// <ul id="gallery"></ul>
+// Використовуй масив об'єктів images для створення тегів img вкладених в li.
+//  Для створення розмітки використовуй шаблонні рядки і insertAdjacentHTML().
+
+// Всі елементи галереї повинні додаватися в DOM за одну операцію вставки.
+// Додай мінімальне оформлення галереї флексбоксами або грід через   css-класи.
+const images = [
+  {
+    url:
+      'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    alt: 'White and Black Long Fur Cat',
+  },
+  {
+    url:
+      'https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    alt: 'Orange and White Koi Fish Near Yellow Koi Fish',
+  },
+  {
+    url:
+      'https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
+    alt: 'Group of Horses Running',
+  },
+];
+const ulDom = document.querySelector('#gallery');
+
+const addPhotos = images.forEach((elem) => {
+  const create = document.createElement('img');
+  create.setAttribute("src",elem.url);
+  create.setAttribute("alt",elem.alt);
+  create.classList.add('just');
+  create.style.height = "100px";
+  return console.log(ulDom.appendChild(create));
+});
+
