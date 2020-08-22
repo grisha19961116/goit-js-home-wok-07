@@ -22,10 +22,11 @@ bodyRef.appendChild(span);
 const hounterIput = (event) => {
   span.classList.add('span-last__change');
   const variable = Math.round(event.clientX/50);
-  const num = 5;
+  const num = 2;
   const resalt = variable*num+`px`;
   span.style.fontSize= resalt;
 };
 input.addEventListener('mouseup',hounterIput);
+console.log(bodyRef)
 
 
