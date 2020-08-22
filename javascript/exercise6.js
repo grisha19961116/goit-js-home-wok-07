@@ -1,14 +1,34 @@
-import users from './users.js'
 // Завдання 6
-// Отримати масив користувачів, які потрапляють у вікову категорію від min до max років (поле age).
+// Напиши скрипт, який би при втраті фокуса на інпут,
+//  перевіряв його вміст на правильну кількість символів.
 
-const getUsersWithAge = (users, min, max) => {
-        const  ageLimit = users.filter( user => user.age > min && user.age < max);
-    return ageLimit;
-  // твій код
-};
+{/* <input
+  type="text"
+  id="validation-input"
+  data-length="6"
+  placeholder="Введи 6 символів"
+/> */}
+// Скільки символів має бути в інпут, вказується в його атрибуті data-length.
+// Якщо введена відповідна кількість, то border інпут стає зеленим,
+//    якщо неправильне - червоним.
+// Для додавання стилів, використовуй CSS-класи valid і invalid.
+const conectBody = document.querySelector('body');
+const input = document.createElement('input');
+conectBody.appendChild(input);
+input.id = "validation-input";
+input.setAttribute('type',"text");
+input.setAttribute('placeholder',"Введи 6 символів");
+input.setAttribute('data-length',"6");
+const focusInput = (event) =>{
+  if(event.target.selectionStart == input.getAttribute('data-length')){
+    input.classList.remove('invalid');
+   return input.classList.add('valid');
+  } 
+  input.classList.add('invalid')
+}
+input.addEventListener('change',focusInput)
 
-console.log(getUsersWithAge(users, 20, 30)); // [об'єкт Ross Vazquez, об'єкт Elma Head, об'єкт Carey Barr]
+console.log(conectBody);
+console.dir(input);
+console.log(input.getAttribute('data-length'));
 
-console.log(getUsersWithAge(users, 30, 40));
-// [об'єкт Moore Hensley, об'єкт Sharlene Bush, об'єкт Blackburn Dotson, об'єкт Sheree Anthony]

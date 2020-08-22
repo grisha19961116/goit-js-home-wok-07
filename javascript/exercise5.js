@@ -1,14 +1,34 @@
-import users from './users.js'
 // Завдання 5
-// Отримати користувача (не масив) по email (поле email, він унікальний).
+// Напиши скрипт який, при наборі тексту в інпут
+//  input#name-input (подія input), підставляє його поточне
+//   значення в span#name-output. якщо інпут порожній,
+//    в спані повинен відображатися рядок 'незнайомець'.
 
-const getUserWithEmail = (users, email) => {
-  const fiendEmail = users.find(user => user.email === email);
-  return fiendEmail;
-  // твій код
-};
+{/* <input type="text" placeholder="" id="name-input" />
+<h1>Привіт, <span id="name-output">незнайомець</span>!</h1> */}
+const refForAddElem = document.querySelector('body');
+const input = document.createElement('input');
+input.classList.add('input-class');
+input.id = "name-input";
+input.setAttribute('placeholder',"Ваше ім'я?");
+input.setAttribute('type',"text");
+refForAddElem.appendChild(input);
+const textP = document.createElement('h1');
+textP.classList.add('h-class');
+const spanInTextP = document.createElement('span');
+const lableAtention = ' !';
+const firstMeaning = 'незнайомець'
+spanInTextP.textContent = firstMeaning + lableAtention;
 
-console.log(getUserWithEmail(users, 'shereeanthony@kog.com')); 
-// {об'єкт користувача Sheree Anthony}
-console.log(getUserWithEmail(users, 'elmahead@omatom.com'));
- // {об'єкт користувача Elma Head}
+textP.textContent = `Привіт , `
+spanInTextP.id = "name-output";
+spanInTextP.classList.add('h-class__span')
+textP.appendChild(spanInTextP);
+refForAddElem.appendChild(textP);
+const changeInput = (event) => {
+   spanInTextP.textContent = event.target.value + lableAtention;
+   return spanInTextP;
+}
+input.addEventListener('change',changeInput)
+
+console.log(refForAddElem)
