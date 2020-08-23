@@ -11,6 +11,7 @@ const input = document.createElement('input');
 input.classList.add('input-last');
 input.id = "font-size-control";
 input.setAttribute('type',"range");
+input.setAttribute('value',"10");
 bodyRef.appendChild(input);
 
 const span = document.createElement('span');
@@ -19,14 +20,25 @@ span.id = "text";
 span.textContent = `Абракадабра!`;
 bodyRef.appendChild(span);
 
-const hounterIput = (event) => {
+
+const targetLikeValue = (event) => {
   span.classList.add('span-last__change');
-  const variable = Math.round(event.clientX/50);
-  const num = 2;
-  const resalt = variable*num+`px`;
-  span.style.fontSize= resalt;
-};
-input.addEventListener('mouseup',hounterIput);
+// через вісь Х
+  // const variable = Math.round(event.clientX/50);
+  // const num = 2;
+  // const resalt = variable*num+`px`;
+  // span.style.fontSize = resalt;
+// через довжину велью,тобто дожину нашого елемента фізичну
+  const res = Math.round(event.target.valueAsNumber);
+  span.style.fontSize = res+`px`;
+  span.style.width= res+`px`;
+  span.style.height= res+`px`;
+
+  console.log(`will be change dinamicly `,event.target.valueAsNumber);
+
+}
+input.addEventListener('change',targetLikeValue)
+
 console.log(bodyRef)
 
 
