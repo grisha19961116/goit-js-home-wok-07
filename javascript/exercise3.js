@@ -9,6 +9,9 @@
 
 // Всі елементи галереї повинні додаватися в DOM за одну операцію вставки.
 // Додай мінімальне оформлення галереї флексбоксами або грід через   css-класи.
+// Задача 3
+// 1)callback forEach не возвращает вообще ничего
+// 2) вставлять нужно за 1 действие
 const images = [
   {
     url:
@@ -27,13 +30,21 @@ const images = [
   },
 ];
 const ulDom = document.querySelector('#gallery');
-
-const addPhotos = images.forEach((elem) => {
+const addElement = function(elem){
   const create = document.createElement('img');
   create.setAttribute("src",elem.url);
   create.setAttribute("alt",elem.alt);
   create.classList.add('just');
   create.style.height = "100px";
-  return console.log(ulDom.appendChild(create));
-});
+  return create;
+
+}
+const addPhotos = function(images){
+images.forEach((elem) => {
+const newGaleryWithElements = addElement(elem);
+ulDom.appendChild(newGaleryWithElements)
+ })
+};
+// однією дією і все вроді так як потрібно)
+addPhotos(images);
 

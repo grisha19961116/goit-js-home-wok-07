@@ -12,6 +12,10 @@
   <span id="value">0</span>
   <button type="button" data-action="increment">+1</button>
 </div> */
+
+// убрав ретурни і почитав за них
+
+
 const counter = document.createElement('div');
 counter.classList.add('wrapper-for-counter');
 const value = document.createElement('span');
@@ -19,7 +23,6 @@ value.textContent = 0;
 
 const incrementFn = () => {
   value.textContent = Number(value.textContent) + 1;
-return value.textContent;
 } ;
 const increment = document.createElement('button');
 increment.textContent = '+1';
@@ -27,7 +30,6 @@ increment.addEventListener('click',incrementFn);
 
 const decrementFn = () => {
   value.textContent = Number(value.textContent) - 1;
-return value.textContent;
 };
 const decrement = document.createElement('button');
 decrement.textContent = '-1';

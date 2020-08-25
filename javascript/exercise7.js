@@ -21,6 +21,7 @@ span.textContent = `Абракадабра!`;
 bodyRef.appendChild(span);
 
 
+
 const targetLikeValue = (event) => {
   span.classList.add('span-last__change');
 // через вісь Х
@@ -40,5 +41,12 @@ const targetLikeValue = (event) => {
 input.addEventListener('change',targetLikeValue)
 
 console.log(bodyRef)
+const justMessive = [
+  'aplle',
+  'peanaplle',
+  'orange'
+]
+const fnForOurForEach = (text) = >{
 
-
+};
+const resalt = justMessive.
