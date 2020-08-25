@@ -17,24 +17,21 @@ const ingredient = [
 //  після чого вставить всі li за одну операцію 
 //  в список ul.ingredients. Для створення DOM-вузлів
 //   використовуй document.createElement().
-const addElement = function(elem){
-  const elemLi = document.createElement('li');
-  elemLi.textContent = elem;
-  elemLi.classList.add('second');
-  return elemLi;
-}
+const fragment = document.createDocumentFragment();
+const ready = document.querySelector('#ingredients');
 
-const ready = document.querySelector('#ingredients')
 
-const dinamic = function (ingredient) {
-  ingredient.forEach((elem) => {
-      const newLiFromElements = addElement(elem);
-      ready.appendChild(newLiFromElements)
-      console.log(newLiFromElements);
-    })
-};
+
+
+const dinamic = ingredient.forEach((elem) => {
+      const elemLi = document.createElement('li');
+      elemLi.textContent = elem;
+      elemLi.classList.add('second');
+      fragment.appendChild(elemLi);
+    });
+
+ready.appendChild(fragment);
 
 // одна дія як і просив,і консоль повертає!
-dinamic(ingredient);
 
 

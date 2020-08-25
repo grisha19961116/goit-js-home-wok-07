@@ -29,22 +29,17 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+const fragment = document.createDocumentFragment();
 const ulDom = document.querySelector('#gallery');
-const addElement = function(elem){
+
+const addPhotos = images.forEach((elem) => {
   const create = document.createElement('img');
   create.setAttribute("src",elem.url);
   create.setAttribute("alt",elem.alt);
   create.classList.add('just');
   create.style.height = "100px";
-  return create;
-
-}
-const addPhotos = function(images){
-images.forEach((elem) => {
-const newGaleryWithElements = addElement(elem);
-ulDom.appendChild(newGaleryWithElements)
- })
-};
+  fragment.appendChild(create);
+ });
 // однією дією і все вроді так як потрібно)
-addPhotos(images);
+ulDom.appendChild(fragment);
 
