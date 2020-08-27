@@ -29,17 +29,39 @@ const images = [
     alt: 'Group of Horses Running',
   },
 ];
+// first solution
 const fragment = document.createDocumentFragment();
-const ulDom = document.querySelector('#gallery');
+const ulDomFragments = document.querySelector('#gallery');
 
-const addPhotos = images.forEach((elem) => {
+const addPhotosWithFragments = images.map((elem) => {
   const create = document.createElement('img');
   create.setAttribute("src",elem.url);
   create.setAttribute("alt",elem.alt);
   create.classList.add('just');
-  create.style.height = "100px";
   fragment.appendChild(create);
  });
-// однією дією і все вроді так як потрібно)
-ulDom.appendChild(fragment);
+ulDomFragments.appendChild(fragment);
+console.log(ulDomFragments);
+// second solution
+const ulDomAppend = document.querySelector('#gallery');
+const addPhotosWithApend = images.map((elem) => {
+  const create = document.createElement('img');
+  create.setAttribute("src",elem.url);
+  create.setAttribute("alt",elem.alt);
+  create.classList.add('just','just-2');
+  return create;
+ });
+ ulDomAppend.append(...addPhotosWithApend);
+ console.log(ulDomAppend);
 
+// third solution
+const ulDomPreapend = document.querySelector('#gallery');
+const addPhotosWithPreapend = images.map((elem) => {
+  const create = document.createElement('img');
+  create.setAttribute("src",elem.url);
+  create.setAttribute("alt",elem.alt);
+  create.classList.add('just','just-3');
+  return create;
+ });
+ ulDomAppend.prepend(...addPhotosWithPreapend);
+ console.log(ulDomPreapend);

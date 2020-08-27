@@ -1,7 +1,16 @@
 .just {
     width: 100px;
+    height: 100px;
     display: block;
     margin-bottom: 40px;
+}
+.just-2{
+    width: 150px;
+    height: 150px;
+}
+.just-3{
+    width: 250px;
+    height: 250px;
 }
 .second{
     color: orange;
@@ -110,4 +119,10 @@
 }
 .span-last__change{
     background-color: rgb(191, 223, 205);
+}
+.third{
+    color: green;
+}
+.first{
+    color: pink;
 }

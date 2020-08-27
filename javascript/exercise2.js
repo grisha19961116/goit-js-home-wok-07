@@ -12,26 +12,38 @@ const ingredient = [
   'Зелень',
   'Приправи',
 ];
-// Напиши скрипт, який для кожного елемента масиву
-//  ingredients створить окремий li,
-//  після чого вставить всі li за одну операцію 
-//  в список ul.ingredients. Для створення DOM-вузлів
-//   використовуй document.createElement().
+
+// first solution
+
 const fragment = document.createDocumentFragment();
 const ready = document.querySelector('#ingredients');
-
-
-
-
 const dinamic = ingredient.forEach((elem) => {
       const elemLi = document.createElement('li');
       elemLi.textContent = elem;
-      elemLi.classList.add('second');
+      elemLi.classList.add('first');
       fragment.appendChild(elemLi);
     });
-
 ready.appendChild(fragment);
+// second solution
+        const readyAppend = document.querySelector('#ingredients');
+        const dinamAppend = ingredient.map((elem) => {
+        const elemLi = document.createElement('li');
+        elemLi.textContent = elem;
+        elemLi.classList.add('second');
+        return elemLi;
+      });
+        readyAppend.append(...dinamAppend);
+        console.log(dinamAppend);
+// third solution
+        const readyPreapend = document.querySelector('#ingredients');
+        const dinamPreapend = ingredient.map((elem) => {
+        const elemLi = document.createElement('li');
+        elemLi.textContent = elem;
+        elemLi.classList.add('third');
+        return elemLi;
+      });
+      readyAppend.prepend(...dinamPreapend);
+      console.log(dinamPreapend)
 
-// одна дія як і просив,і консоль повертає!
 
 
