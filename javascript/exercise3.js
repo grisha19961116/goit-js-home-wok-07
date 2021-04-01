@@ -1,67 +1,61 @@
-// Завдання 3
-// Напиши скрипт для створення галереї зображень по масиву даних.
-
-// В HTML є список ul#gallery.
-
+// Exercise 3
+// Write script for creat image gallery by data massive.
+// In HTML is list ul#gallery.
 // <ul id="gallery"></ul>
-// Використовуй масив об'єктів images для створення тегів img вкладених в li.
-//  Для створення розмітки використовуй шаблонні рядки і insertAdjacentHTML().
-
-// Всі елементи галереї повинні додаватися в DOM за одну операцію вставки.
-// Додай мінімальне оформлення галереї флексбоксами або грід через   css-класи.
-// Задача 3
-// 1)callback forEach не возвращает вообще ничего
-// 2) вставлять нужно за 1 действие
+// Use massive arrays images for create teg "img" into li.
+// Fro create grid use template row and insertAdjacentHTML().
+// All elements gallery have to add into DOM by one action to insert.
+// Add minimal styles.
 const images = [
   {
     url:
-      'https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    alt: 'White and Black Long Fur Cat',
+      "https://images.pexels.com/photos/140134/pexels-photo-140134.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    alt: "White and Black Long Fur Cat",
   },
   {
     url:
-      'https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    alt: 'Orange and White Koi Fish Near Yellow Koi Fish',
+      "https://images.pexels.com/photos/213399/pexels-photo-213399.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    alt: "Orange and White Koi Fish Near Yellow Koi Fish",
   },
   {
     url:
-      'https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260',
-    alt: 'Group of Horses Running',
+      "https://images.pexels.com/photos/219943/pexels-photo-219943.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
+    alt: "Group of Horses Running",
   },
 ];
 // first solution
 const fragment = document.createDocumentFragment();
-const ulDomFragments = document.querySelector('#gallery');
+const ulDomFragments = document.querySelector("#gallery");
 
 const addPhotosWithFragments = images.map((elem) => {
-  const create = document.createElement('img');
-  create.setAttribute("src",elem.url);
-  create.setAttribute("alt",elem.alt);
-  create.classList.add('just');
+  const create = document.createElement("img");
+  create.setAttribute("src", elem.url);
+  create.setAttribute("alt", elem.alt);
+  create.classList.add("just");
   fragment.appendChild(create);
- });
+});
 ulDomFragments.appendChild(fragment);
 console.log(ulDomFragments);
 // second solution
-const ulDomAppend = document.querySelector('#gallery');
-const addPhotosWithApend = images.map((elem) => {
-  const create = document.createElement('img');
-  create.setAttribute("src",elem.url);
-  create.setAttribute("alt",elem.alt);
-  create.classList.add('just','just-2');
+const ulDomAppend = document.querySelector("#gallery");
+const addPhotosWithAppend = images.map((elem) => {
+  const create = document.createElement("img");
+  create.setAttribute("src", elem.url);
+  create.setAttribute("alt", elem.alt);
+  create.classList.add("just", "just-2");
   return create;
- });
- ulDomAppend.append(...addPhotosWithApend);
- console.log(ulDomAppend);
+});
+ulDomAppend.append(...addPhotosWithAppend);
+console.log(ulDomAppend);
 
 // third solution
-const ulDomPreapend = document.querySelector('#gallery');
-const addPhotosWithPreapend = images.map((elem) => {
-  const create = document.createElement('img');
-  create.setAttribute("src",elem.url);
-  create.setAttribute("alt",elem.alt);
-  create.classList.add('just','just-3');
+const ulDomPrepend = document.querySelector("#gallery");
+const addPhotosWithPrepend = images.map((elem) => {
+  const create = document.createElement("img");
+  create.setAttribute("src", elem.url);
+  create.setAttribute("alt", elem.alt);
+  create.classList.add("just", "just-3");
   return create;
- });
- ulDomAppend.prepend(...addPhotosWithPreapend);
- console.log(ulDomPreapend);
+});
+ulDomAppend.prepend(...addPhotosWithPrepend);
+console.log(ulDomPrepend);

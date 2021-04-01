@@ -1,52 +1,37 @@
-// Завдання 7
-// Напиши скрипт, який реагує на зміну значення input#font-size-control
-//  (подія input) і змінює інлайн-стиль span#text оновлюючи властивість font-size.
-//   В результаті при перетягуванні повзунка змінюватиметься розмір тексту.
-
+// Exercise 7
+// This script can change inline style by listener
 // <input id="font-size-control" type="range" />
 // <br />
-// <span id="text">Абракадабра!</span>
-const bodyRef = document.querySelector('body');
-const input = document.createElement('input');
-input.classList.add('input-last');
+// <span id="text">Magic!</span>
+
+const bodyRef = document.querySelector("body");
+const input = document.createElement("input");
+
+input.classList.add("input-last");
 input.id = "font-size-control";
-input.setAttribute('type',"range");
-input.setAttribute('value',"10");
+input.setAttribute("type", "range");
+input.setAttribute("value", "10");
+
 bodyRef.appendChild(input);
 
-const span = document.createElement('span');
-span.classList.add('span-last');
+const span = document.createElement("span");
+
+span.classList.add("span-last");
 span.id = "text";
-span.textContent = `Абракадабра!`;
+span.textContent = `Magic!`;
+
 bodyRef.appendChild(span);
 
+const targetLikeValue = ({ target: { valueAsNumber } }) => {
+  span.classList.add("span-last__change");
+  const res = Math.round(valueAsNumber);
+  span.style.fontSize = res + `px`;
+  span.style.width = res + `px`;
+  span.style.height = res + `px`;
 
-
-const targetLikeValue = (event) => {
-  span.classList.add('span-last__change');
-// через вісь Х
-  // const variable = Math.round(event.clientX/50);
-  // const num = 2;
-  // const resalt = variable*num+`px`;
-  // span.style.fontSize = resalt;
-// через довжину велью,тобто дожину нашого елемента фізичну
-  const res = Math.round(event.target.valueAsNumber);
-  span.style.fontSize = res+`px`;
-  span.style.width= res+`px`;
-  span.style.height= res+`px`;
-
-  console.log(`will be change dinamicly `,event.target.valueAsNumber);
-
-}
-input.addEventListener('change',targetLikeValue)
-
-console.log(bodyRef)
-const justMessive = [
-  'aplle',
-  'peanaplle',
-  'orange'
-]
-const fnForOurForEach = (text) = >{
-
+  console.log(`will be change dynamic `, valueAsNumber);
 };
-const resalt = justMessive.
+
+input.addEventListener("change", targetLikeValue);
+
+console.log(bodyRef);

@@ -1,21 +1,18 @@
-// Напиши скрипт, який виконає наступні операції.
+// Write script which execute next operations .
+// 1) Count and lead out into console quantity categories for ul#categories,
+//  meant elements li.item. Will be in list "three category".
+// 2) Fro each  li.item in  ul#categories, find and show quantity elements into category
+// and lead out into console text title elements (teg h2) and quantity elements into the category
+// all inserted into him elements (li).For example in first category will be:
+// category: pets ,
+// quantity elements: 4
+const allItemsFromCategories = document.querySelectorAll(".item");
+console.log(`У списку '${allItemsFromCategories.length}' категорії.`);
 
-// 1) Порахує і виведе в консоль кількість категорій в ul#categories,
-//  тобто елементів li.item. Вийде 'У списку 3 категорії.'.
-
-// 3) Для кожного елемента li.item в списку ul#categories, знайде і
-//  виведе в консоль текст заголовка елемента (тега h2) і
-//   кількість елементів в категорії (всіх вкладених в нього елементів li).
-
-// Наприклад, для першої категорії вийде:
-
-// Категорія: Тварини
-// Кількість елементів: 4
-const allItemiesFromCategories = document.querySelectorAll('.item');
-console.log(`У списку '${allItemiesFromCategories.length}' категорії.`);
-
-const amountCategory = allItemiesFromCategories.forEach(el => {
-console.log(`Категорія: ${el.firstElementChild.textContent}.`),
-console.log(`Кількість елементів: ${el.lastElementChild.childElementCount}.`)
+const amountCategory = allItemsFromCategories.forEach((el) => {
+  console.log(`Категорія: ${el.firstElementChild.textContent}.`),
+    console.log(
+      `Кількість елементів: ${el.lastElementChild.childElementCount}.`
+    );
 });
 console.log(amountCategory);

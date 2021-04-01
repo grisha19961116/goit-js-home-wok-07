@@ -1,49 +1,42 @@
-// Задача 2
-// 1) просто не решена. callback map не возвращает console.log
-// 2) вставлять нужно за 1 действие
-
-// В JS є масив рядків.
+// Exercise 2
 
 const ingredient = [
-  'Картопля',
-  'Гриби',
-  'Часник',
-  'Помідори',
-  'Зелень',
-  'Приправи',
+  "Картопля",
+  "Гриби",
+  "Часник",
+  "Помідори",
+  "Зелень",
+  "Приправи",
 ];
 
 // first solution
-
 const fragment = document.createDocumentFragment();
-const ready = document.querySelector('#ingredients');
-const dinamic = ingredient.forEach((elem) => {
-      const elemLi = document.createElement('li');
-      elemLi.textContent = elem;
-      elemLi.classList.add('first');
-      fragment.appendChild(elemLi);
-    });
-ready.appendChild(fragment);
+const ulDomFragment = document.querySelector("#ingredients");
+const dynamicFragment = ingredient.forEach((elem) => {
+  const elemLi = document.createElement("li");
+  elemLi.textContent = elem;
+  elemLi.classList.add("first");
+  fragment.appendChild(elemLi);
+});
+ulDomFragment.appendChild(fragment);
+console.log(ulDomFragment);
 // second solution
-        const readyAppend = document.querySelector('#ingredients');
-        const dinamAppend = ingredient.map((elem) => {
-        const elemLi = document.createElement('li');
-        elemLi.textContent = elem;
-        elemLi.classList.add('second');
-        return elemLi;
-      });
-        readyAppend.append(...dinamAppend);
-        console.log(dinamAppend);
+const ulDomAppend = document.querySelector("#ingredients");
+const dynamicAppend = ingredient.map((elem) => {
+  const elemLi = document.createElement("li");
+  elemLi.textContent = elem;
+  elemLi.classList.add("second");
+  return elemLi;
+});
+ulDomAppend.append(...dynamicAppend);
+console.log(dynamicAppend);
 // third solution
-        const readyPreapend = document.querySelector('#ingredients');
-        const dinamPreapend = ingredient.map((elem) => {
-        const elemLi = document.createElement('li');
-        elemLi.textContent = elem;
-        elemLi.classList.add('third');
-        return elemLi;
-      });
-      readyAppend.prepend(...dinamPreapend);
-      console.log(dinamPreapend)
-
-
-
+const ulDomPrepend = document.querySelector("#ingredients");
+const dynamicPrepend = ingredient.map((elem) => {
+  const elemLi = document.createElement("li");
+  elemLi.textContent = elem;
+  elemLi.classList.add("third");
+  return elemLi;
+});
+ulDomPrepend.prepend(...dynamicPrepend);
+console.log(dynamicPrepend);

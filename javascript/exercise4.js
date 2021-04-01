@@ -1,48 +1,40 @@
-// Завдання 4
-// Лічильник складається зі спана і кнопок, 
-// які повинні збільшувати і зменшувати значення лічильника на 1.
-
-// Створи змінну counterValue в якій буде 
-// зберігається поточне значення лічильника.
-// Створи функції increment і decrement для 
-// збільшення і зменшення значення   лічильника.
-// Додай слухачі кліків на кнопки, виклики функцій та оновлення інтерфейсу
+// Exercise 4
+//Creat counter
 /* <div id="counter">
   <button type="button" data-action="decrement">-1</button>
   <span id="value">0</span>
   <button type="button" data-action="increment">+1</button>
 </div> */
 
-// убрав ретурни і почитав за них
+const body = document.querySelector("body");
 
+const containerCounter = document.createElement("div");
+containerCounter.classList.add("wrapper-for-counter");
 
-const counter = document.createElement('div');
-counter.classList.add('wrapper-for-counter');
-const value = document.createElement('span');
-value.textContent = 0;
+const valueCounter = document.createElement("span");
+valueCounter.classList.add("value-class");
+valueCounter.textContent = 0;
 
 const incrementFn = () => {
-  value.textContent = Number(value.textContent) + 1;
-} ;
-const increment = document.createElement('button');
-increment.textContent = '+1';
-increment.addEventListener('click',incrementFn);
+  valueCounter.textContent = Number(valueCounter.textContent) + 1;
+};
 
 const decrementFn = () => {
-  value.textContent = Number(value.textContent) - 1;
+  valueCounter.textContent = Number(valueCounter.textContent) - 1;
 };
-const decrement = document.createElement('button');
-decrement.textContent = '-1';
-decrement.addEventListener('click',decrementFn)
 
-const counterTree = document.querySelector('body');
-const readyCounter = counterTree.appendChild(counter);
+const incrementBtn = document.createElement("button");
+incrementBtn.classList.add("first-btn");
+incrementBtn.textContent = "+1";
+incrementBtn.addEventListener("click", incrementFn);
 
-const insideReadyCounterDecrement = readyCounter.appendChild(decrement);
-insideReadyCounterDecrement.classList.add('first-btn');
+const decrementBtn = document.createElement("button");
+decrementBtn.classList.add("second-btn");
+decrementBtn.textContent = "-1";
+decrementBtn.addEventListener("click", decrementFn);
 
-const insideReadyCounterValue = readyCounter.appendChild(value);
-insideReadyCounterValue.classList.add('value-cllas');
+containerCounter.appendChild(incrementBtn);
+containerCounter.appendChild(valueCounter);
+containerCounter.appendChild(decrementBtn);
 
-const insideReadyCounterIncrement = readyCounter.appendChild(increment);
-insideReadyCounterIncrement.classList.add('second-btn');
+body.appendChild(containerCounter);
