@@ -1,12 +1,12 @@
 // Exercise 2
 
 const ingredient = [
-  "Картопля",
-  "Гриби",
-  "Часник",
-  "Помідори",
-  "Зелень",
-  "Приправи",
+  "Potatoes",
+  "Mushrooms",
+  "Garlic",
+  "Tomato",
+  "Lettuce",
+  "Spices",
 ];
 
 // first solution

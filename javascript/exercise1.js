@@ -7,12 +7,12 @@
 // category: pets ,
 // quantity elements: 4
 const allItemsFromCategories = document.querySelectorAll(".item");
-console.log(`У списку '${allItemsFromCategories.length}' категорії.`);
+console.log(`In list'${allItemsFromCategories.length}' categories.`);
 
 const amountCategory = allItemsFromCategories.forEach((el) => {
-  console.log(`Категорія: ${el.firstElementChild.textContent}.`),
+  console.log(`Categories: ${el.firstElementChild.textContent}.`),
     console.log(
-      `Кількість елементів: ${el.lastElementChild.childElementCount}.`
+      `Amount of elements: ${el.lastElementChild.childElementCount}.`
     );
 });
 console.log(amountCategory);
